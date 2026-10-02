@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>30 — Happy Birthday, Twin 🐟</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#080507;color:#f8eef1;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 0%,rgba(104,18,43,.35),transparent 38%),radial-gradient(circle at 10% 80%,rgba(122,20,50,.15),transparent 30%);z-index:-2}
+.wrap{width:min(940px,92%);margin:auto}.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px 0;position:relative}.hero-inner{max-width:760px}
+.kicker{letter-spacing:.28em;text-transform:uppercase;color:#d9b66b;font-size:.72rem;margin-bottom:18px}h1{font-size:clamp(3rem,10vw,7rem);line-height:.9;margin:0;font-weight:900;letter-spacing:-.07em}.gold{color:#d9b66b}
+.hero p{color:#cdbfc3;font-size:1.05rem;line-height:1.7;max-width:600px;margin:25px auto}.btn{border:1px solid #9f5b72;background:#54152d;color:#fff;border-radius:999px;padding:13px 20px;font-weight:800;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px);background:#70203d}
+.balloons{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none}.balloon{position:absolute;width:24px;height:31px;border-radius:50%;opacity:.22;animation:float 7s ease-in-out infinite}.balloon:after{content:"";position:absolute;left:50%;top:29px;width:1px;height:55px;background:#9b7a83}@keyframes float{0%,100%{transform:translateY(20px)}50%{transform:translateY(-25px)}}
+section{padding:85px 0}.section-title{font-size:2.2rem;margin:0 0 12px}.sub{color:#aa9ba0;line-height:1.6}.card{background:linear-gradient(145deg,rgba(42,14,25,.95),rgba(14,8,11,.98));border:1px solid rgba(217,182,107,.25);border-radius:26px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.balloons-game{display:grid;grid-template-columns:repeat(5,1fr);gap:22px 16px;max-width:720px;margin:34px auto;padding:8px}
+.tap-balloon{height:132px;border:0;background:transparent;cursor:pointer;position:relative;display:grid;place-items:center;filter:drop-shadow(0 12px 10px rgba(0,0,0,.35));transition:transform .2s ease}
+.tap-balloon:hover{transform:translateY(-7px) rotate(-1deg)}
+.tap-balloon:focus-visible{outline:2px solid #d9b66b;outline-offset:5px;border-radius:24px}
+.tap-balloon .orb{position:relative;width:78px;height:92px;border-radius:50% 50% 48% 48%;background:radial-gradient(circle at 34% 25%,#355477 0 7%,#182d4c 18%,#0b1730 48%,#12091b 76%,#4b102c 100%);border:2px solid #8f3859;box-shadow:inset 10px 10px 18px rgba(91,143,187,.18),inset -14px -17px 20px rgba(0,0,0,.45),0 0 0 3px rgba(88,24,49,.22),0 0 25px rgba(50,83,130,.18);overflow:hidden;transition:transform .2s ease,filter .2s ease}
+.tap-balloon .orb:before{content:"✦  ·  ˚  ★  ·  ✧  ·";position:absolute;inset:15px 7px;color:#e9e4cf;font-size:9px;letter-spacing:5px;line-height:25px;transform:rotate(-8deg);opacity:.9;text-shadow:0 0 7px rgba(180,211,255,.75)}
+.tap-balloon .orb:after{content:"";position:absolute;width:16px;height:26px;left:15px;top:13px;border-radius:50%;background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0));transform:rotate(24deg)}
+.tap-balloon .knot{position:absolute;bottom:20px;width:11px;height:9px;background:#7c2949;clip-path:polygon(0 0,100% 0,50% 100%)}
+.tap-balloon .string{position:absolute;bottom:0;width:1px;height:28px;background:linear-gradient(#9b6477,#4a3140)}
+.tap-balloon:hover .orb{filter:brightness(1.18);transform:scale(1.05)}
+.tap-balloon.popped .orb{animation:popNight .42s cubic-bezier(.2,.8,.2,1) forwards}
+.tap-balloon.popped .knot,.tap-balloon.popped .string{opacity:0}
+@keyframes popNight{0%{transform:scale(1);opacity:1}45%{transform:scale(1.22) rotate(4deg);opacity:.95}100%{transform:scale(.15) rotate(-8deg);opacity:0}}
+
+.tap-balloon .num{
+  position:absolute;z-index:3;top:22px;left:50%;transform:translateX(-50%);
+  color:#f7e8d0;font-size:12px;font-weight:900;letter-spacing:.04em;
+  text-shadow:0 1px 5px #000,0 0 8px rgba(160,190,230,.55);
+  pointer-events:none
+}
+.tap-balloon{animation:drift var(--drift,4.8s) ease-in-out infinite;animation-delay:var(--delay,0s)}
+.tap-balloon:nth-child(3n){--drift:5.7s}.tap-balloon:nth-child(4n){--drift:6.4s}.tap-balloon:nth-child(5n){--drift:4.2s}
+@keyframes drift{
+  0%,100%{translate:0 0;rotate:-2deg}
+  25%{translate:7px -10px;rotate:2deg}
+  50%{translate:-5px -18px;rotate:-2deg}
+  75%{translate:-9px -7px;rotate:3deg}
+}
+.word-pop{
+  position:fixed;z-index:9999;pointer-events:none;
+  color:#f7e8d0;background:rgba(28,8,24,.92);
+  border:1px solid rgba(217,182,107,.65);border-radius:999px;
+  padding:7px 12px;font-size:13px;font-weight:900;
+  box-shadow:0 8px 25px rgba(0,0,0,.35),0 0 18px rgba(72,92,150,.25);
+  white-space:nowrap;animation:wordFloat 1.25s cubic-bezier(.2,.75,.25,1) forwards
+}
+@keyframes wordFloat{
+  0%{opacity:0;transform:translate(-50%,0) scale(.7)}
+  15%{opacity:1;transform:translate(-50%,-8px) scale(1)}
+  100%{opacity:0;transform:translate(-50%,-72px) scale(.92)}
+}
+.tap-balloon.popped{animation:none}
+
+@media(max-width:700px){.balloons-game{grid-template-columns:repeat(3,1fr);gap:18px 8px}.tap-balloon{height:118px}.tap-balloon .orb{width:67px;height:80px}.tap-balloon .knot{bottom:17px}.tap-balloon .string{height:25px}}
+.counter{text-align:center;font-size:1.2rem;color:#d9b66b;font-weight:800}.hidden{display:none!important}.message{white-space:pre-line;color:#eadde1;line-height:1.9;font-size:1.05rem}
+.song{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.song-icon{width:72px;height:72px;border-radius:20px;background:#54152d;display:grid;place-items:center;font-size:2rem}iframe{border:0;border-radius:16px;width:100%;height:90px;margin-top:18px}
+.codm-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}.codm-img{width:100%;border-radius:18px;border:1px solid #563341;display:block}.score{font-size:4rem;font-weight:950;line-height:1;color:#d9b66b}.vs{font-size:.8rem;color:#8f7f84;letter-spacing:.2em}.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#351020;color:#d9b66b;font-size:.75rem;font-weight:800}
+.quiz{display:grid;gap:18px}.q{padding:22px;border:1px solid #3b222c;border-radius:20px;background:#12090d}.q h3{margin:0 0 15px;font-size:1.05rem}.options{display:flex;flex-wrap:wrap;gap:10px}.option{border:1px solid #593442;background:#1b0b11;color:#eee;padding:10px 14px;border-radius:12px;cursor:pointer}.option.selected{background:#722143;border-color:#b56b84}input{width:100%;background:#0b0709;border:1px solid #49303a;border-radius:12px;padding:12px;color:#fff;outline:none}
+.final{text-align:center}.big-heart{font-size:3rem}footer{padding:30px;text-align:center;color:#6f6065;font-size:.8rem}
+
+.tap-balloon .num{
+  position:absolute;z-index:3;top:22px;left:50%;transform:translateX(-50%);
+  color:#f7e8d0;font-size:12px;font-weight:900;letter-spacing:.04em;
+  text-shadow:0 1px 5px #000,0 0 8px rgba(160,190,230,.55);
+  pointer-events:none
+}
+.tap-balloon{animation:drift var(--drift,4.8s) ease-in-out infinite;animation-delay:var(--delay,0s)}
+.tap-balloon:nth-child(3n){--drift:5.7s}.tap-balloon:nth-child(4n){--drift:6.4s}.tap-balloon:nth-child(5n){--drift:4.2s}
+@keyframes drift{
+  0%,100%{translate:0 0;rotate:-2deg}
+  25%{translate:7px -10px;rotate:2deg}
+  50%{translate:-5px -18px;rotate:-2deg}
+  75%{translate:-9px -7px;rotate:3deg}
+}
+.word-pop{
+  position:fixed;z-index:9999;pointer-events:none;
+  color:#f7e8d0;background:rgba(28,8,24,.92);
+  border:1px solid rgba(217,182,107,.65);border-radius:999px;
+  padding:7px 12px;font-size:13px;font-weight:900;
+  box-shadow:0 8px 25px rgba(0,0,0,.35),0 0 18px rgba(72,92,150,.25);
+  white-space:nowrap;animation:wordFloat 1.25s cubic-bezier(.2,.75,.25,1) forwards
+}
+@keyframes wordFloat{
+  0%{opacity:0;transform:translate(-50%,0) scale(.7)}
+  15%{opacity:1;transform:translate(-50%,-8px) scale(1)}
+  100%{opacity:0;transform:translate(-50%,-72px) scale(.92)}
+}
+.tap-balloon.popped{animation:none}
+
+@media(max-width:700px){.balloons-game{grid-template-columns:repeat(3,1fr)}.codm-grid{grid-template-columns:1fr}.score{font-size:3rem}section{padding:60px 0}}
+</style></head>
+<body>
+<div class="night-collage"></div>
+<div class="hero"><div class="balloons"><i class="balloon" style="left:0%;top:0%;animation-delay:0.0s"></i><i class="balloon" style="left:37%;top:19%;animation-delay:0.5s"></i><i class="balloon" style="left:74%;top:38%;animation-delay:1.0s"></i><i class="balloon" style="left:11%;top:57%;animation-delay:1.5s"></i><i class="balloon" style="left:48%;top:76%;animation-delay:2.0s"></i><i class="balloon" style="left:85%;top:95%;animation-delay:2.5s"></i><i class="balloon" style="left:22%;top:14%;animation-delay:3.0s"></i><i class="balloon" style="left:59%;top:33%;animation-delay:0.0s"></i><i class="balloon" style="left:96%;top:52%;animation-delay:0.5s"></i><i class="balloon" style="left:33%;top:71%;animation-delay:1.0s"></i><i class="balloon" style="left:70%;top:90%;animation-delay:1.5s"></i><i class="balloon" style="left:7%;top:9%;animation-delay:2.0s"></i><i class="balloon" style="left:44%;top:28%;animation-delay:2.5s"></i><i class="balloon" style="left:81%;top:47%;animation-delay:3.0s"></i><i class="balloon" style="left:18%;top:66%;animation-delay:0.0s"></i><i class="balloon" style="left:55%;top:85%;animation-delay:0.5s"></i><i class="balloon" style="left:92%;top:4%;animation-delay:1.0s"></i><i class="balloon" style="left:29%;top:23%;animation-delay:1.5s"></i><i class="balloon" style="left:66%;top:42%;animation-delay:2.0s"></i><i class="balloon" style="left:3%;top:61%;animation-delay:2.5s"></i><i class="balloon" style="left:40%;top:80%;animation-delay:3.0s"></i><i class="balloon" style="left:77%;top:99%;animation-delay:0.0s"></i></div><div class="hero-inner">
+<div class="kicker">for my twin · 03.10.2026</div><h1>30 looks good<br><span class="gold">on you.</span></h1>
+<p>30 years deserves 30 little night-sky balloons. Tap every one to unlock your birthday card.</p>
+<button class="btn" onclick="document.getElementById('balloonSection').scrollIntoView()">Start 🎈</button>
+</div></div>
+
+<section id="balloonSection"><div class="wrap"><div class="card">
+<div class="counter"><span id="count">0</span> / 30 balloons</div><div class="balloons-game" id="balloonsGame"></div>
+<div id="unlock" class="hidden" style="text-align:center"><div style="font-size:2.5rem">🎉</div><h2>Okayyy, you did it.</h2>
+<p class="sub">30 balloons for 30 years. Now the actual gift starts.</p><button class="btn" onclick="document.getElementById('gift').scrollIntoView()">Open the card →</button></div>
+</div></div></section>
+
+<section id="gift"><div class="wrap"><div class="card"><div class="kicker">the actual message</div>
+<h2 class="section-title">Happy 30th birthday to my twin 🐟</h2><div class="message">It’s honestly crazy that we met through cod and somehow became this close i genuinely appreciate our friendship and all the memories laughs and random moments we’ve shared you’ve become one of those people I’m really glad i met and i wouldn’t trade our friendship for anything
+
+I hope 30 treats you well and brings u everything u deserve keep being and keep trying to beat me at cod and maybe one day you’ll finally succeed 😂
+
+Now you&#x27;re stuck with me for another year happy birthday space girl ♥️</div><div style="margin-top:25px;color:#d9b66b">— zayn</div>
+</div></div></section>
+
+<section><div class="wrap"><div class="card"><div class="kicker">our soundtrack</div><div class="song"><div class="song-icon">🎧</div>
+<div><h2 style="margin:0">A song for space girl</h2><p class="sub" style="margin:6px 0 0">Tap play and let it run while you explore the rest.</p></div></div>
+<iframe src="https://www.youtube.com/embed/XQ0s48LYSFQ?rel=0" title="Birthday song" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+</div></div></section>
+
+<section><div class="wrap"><div class="kicker">the evidence</div><h2 class="section-title">The 1v1 Hall of Shame 🫵</h2>
+<p class="sub">Average score: <b style="color:#fff">13–7</b>. We will respectfully ignore the occasional disaster.</p>
+<div class="card codm-grid"><img class="codm-img" src="codm_1v1_result.jpg" alt="CODM 1v1 result screenshot">
+<div><span class="badge">FUNNY MOMENT</span><div class="score">13–0</div><div class="vs">THE DAY THE 1V1 GOT PERSONAL</div>
+<p class="sub">This screenshot is officially archived as evidence. No appeals will be accepted. 😂</p></div></div>
+</div></section>
+
+<section><div class="wrap"><div class="kicker">twin test</div><h2 class="section-title">Okay, answer these honestly.</h2><p class="sub">No cheating. I know you. Probably.</p>
+<div class="quiz">
+<div class="q"><h3>Who is actually better at CODM? 😂</h3><div class="options"><button class="option" onclick="pick(this)">Zayn, obviously.</button><button class="option" onclick="pick(this)">Xhilda, unfortunately.</button><button class="option" onclick="pick(this)">We're equal. (lie)</button></div></div>
+<div class="q"><h3>Who gets more tilted after losing a 1v1?</h3><div class="options"><button class="option" onclick="pick(this)">Zayn 💀</button><button class="option" onclick="pick(this)">Xhilda 💀</button><button class="option" onclick="pick(this)">Both of us.</button></div></div>
+<div class="q"><h3>Who would win if we had a real-life fight?</h3><div class="options"><button class="option" onclick="pick(this)">Zayn.</button><button class="option" onclick="pick(this)">Xhilda.</button><button class="option" onclick="pick(this)">We'd probably start laughing.</button></div></div>
+<div class="q"><h3>If we could meet anywhere in the world, where would we go?</h3><input placeholder="Your answer..."></div>
+<div class="q"><h3>Describe our friendship in 3 words.</h3><input placeholder="Three words. No essay 😂"></div>
+<button class="btn" onclick="document.getElementById('quizDone').classList.remove('hidden')">Save my answers ♥</button>
+<div id="quizDone" class="hidden" style="text-align:center;color:#d9b66b">Answers locked in. Twin status confirmed. 🐟</div>
+</div></div></section>
+
+<section><div class="wrap final"><div class="card"><div class="big-heart">♥️</div><h2 class="section-title">Same chaos. Different year. 30.</h2>
+<p class="sub">Happy birthday, space girl.</p><button class="btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Replay from the top ↺</button>
+</div></div></section><footer>made for one very specific twin · 2026</footer>
+
+<script>
+const game=document.getElementById('balloonsGame'), countEl=document.getElementById('count'); let popped=0;
+const balloonWords=[
+  'Happy','birthday','day','twin','dummy','crazy gyal','lady fire','fish','seal','sonion',
+  'wrap','shawarma','i hope','every','year',"you're",'doing','great','with','full','of joy',
+  'i hope','one day',"you'll",'beat','me','and','who knows','maybe',"we'll meet"
+];
+for(let i=1;i<=30;i++){
+ const b=document.createElement('button');
+ b.className='tap-balloon';
+ b.style.setProperty('--delay',(-Math.random()*5).toFixed(2)+'s');
+ b.innerHTML='<span class="orb"></span><span class="knot"></span><span class="string"></span><span class="num">'+i+'</span>';
+ b.setAttribute('aria-label','Balloon '+i);
+
+ b.onclick=(e)=>{
+   if(b.classList.contains('popped'))return;
+   const word=balloonWords[i-1];
+   const pop=document.createElement('div');
+   pop.className='word-pop';
+   pop.textContent=word;
+   pop.style.left=e.clientX+'px';
+   pop.style.top=e.clientY+'px';
+   document.body.appendChild(pop);
+   setTimeout(()=>pop.remove(),1300);
+
+   b.classList.add('popped');
+   popped++;
+   countEl.textContent=popped;
+   setTimeout(()=>b.style.visibility='hidden',420);
+
+   if(popped===30){
+     document.getElementById('unlock').classList.remove('hidden');
+     burst();
+   }
+ };
+ game.appendChild(b);
+}
+function pick(btn){btn.parentElement.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected')}
+function burst(){for(let i=0;i<45;i++){const s=document.createElement('span');s.textContent=['✦','•','♥','✧'][Math.floor(Math.random()*4)];
+s.style.position='fixed';s.style.left=(50+Math.random()*20-10)+'vw';s.style.top='45vh';s.style.color=['#d9b66b','#b56b84','#fff'][Math.floor(Math.random()*3)];
+s.style.fontSize=(12+Math.random()*22)+'px';s.style.zIndex=99;s.style.pointerEvents='none';document.body.appendChild(s);
+s.animate([{transform:'translate(0,0) scale(1)',opacity:1},{transform:'translate('+(Math.random()*500-250)+'px,'+(Math.random()*500-250)+'px) scale(0)',opacity:0}],{duration:900+Math.random()*700,easing:'cubic-bezier(.2,.8,.2,1)'}).onfinish=()=>s.remove();}}
+</script></body></html>
